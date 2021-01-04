@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blackout Businesses</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="contact.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="blackout20px.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="directory.html">Directory</a></li>
+              <li><a href="articles.html">Articles</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.php" class="active">Contact</a></li>
+              <li><a href="downloadtheapp.html">Download the App</a></li>  
+              </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div>
+ <div class="container adspace col-lg-3 col-md-3 col-sm-12 col-xs-12">
+  
+        <img class="img-responsive jumbotron" src="adspaceexample.jpeg" height="400px" width="400px">
+
+    </div>
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 jumbotron">
+  <h3>Blackout Businesses </h3>
+    <div class="alert alert-success">
+          <p class="lead">Your form was submitted. Responses take between 24-48 hours.</p>
+      </div>
+       
+  
+   
+
+</div>
+<div class="clear"> </div>
+
+    <div class="container adspace col-lg-3 col-md-3 col-sm-12 col-xs-12">
+  
+        <img class="img-responsive jumbotron" src="admob.png" height="400px" width="400px">
+
+    </div>
+
+</div>
+
+    <div style="clear:both;"></div>
+
+
+ 
+
+
+</div>
+
+<br /> <br /> <br /> <br /> <br /> <br />
+<div class="clear"> 
+</div>
+
+<footer> 
+
+Blackout Businesses | Copyright © 2016
+      
+</div>
+</footer>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $("#submit_button").click(function(){
+      //ON CLICK, IF ALL FIELDS ARE NOT EMPTY, ALERT SUCCESS
+
+      $("#contact_message").append('<div class= "alert alert-success">Form submitted </div>');
+      //USE AJAX TO SUBMITT FORM OR SEGUE TO A CONTACT SUBMITTED PAGE.
+      })
+
+  })
+</script>
+</body>
+</html>
+

@@ -1,0 +1,185 @@
+body{
+background-image: none;
+background-color: #E7ECEF !important;
+}
+
+.jumbotron{
+    background-color: white !important;
+    
+}
+
+.clear{
+clear: all;
+}
+
+li{
+padding-top: 6px;
+}
+
+.active{
+background-color: #4d4d4d;
+}
+/* Mobile */
+@media (max-width: 767px) {
+    .img-responsive {
+        height: auto;
+    }
+    .img-responsive > img {
+         width: 80%;
+    }
+    .middlediv{
+    font-size: 0.8em;
+    }
+     .leftcontainer h3{
+    font-size: 0.8em
+    }
+    .leftcontainer li{
+    font-size: 0.8em
+    }
+
+    .selectpicker{
+    font-size: 0.8em;
+}
+}
+
+/* tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    .img-responsive {
+        height: auto;
+    }
+    .img-responsive > img {
+        width: 80%;
+    }
+    .middlediv{
+    font-size: 0.9em;
+    }
+     .leftcontainer h3{
+    font-size: 0.9em
+    }
+    .leftcontainer li{
+    font-size: 0.8em
+    }
+    .selectpicker{
+    font-size: 0.8em;
+}
+}
+
+/* laptops */
+@media (max-width: 1023px) and (min-width: 992px) {
+    .img-responsive {
+         height: auto;
+        width: auto;
+    }
+    .img-responsive> img {
+        width: 80%;
+    }
+    .middlediv{
+    font-size: 1.0em;
+    }
+    .leftcontainer h3{
+    font-size: 0.9em
+    }
+    .leftcontainer li{
+    font-size: 0.8em
+    }
+
+    .selectpicker{
+    font-size: 0.8em;
+}
+}
+
+/* desktops */
+@media (min-width: 1024px) {
+    .img-responsive {
+        height: auto;
+        width: auto;
+    }
+    .img-responsive> img {
+        width: 60%;
+    }
+
+    .middlediv{
+    font-size: 1.2em;
+    }
+
+    .leftcontainer h3{
+    font-size: 0.9em
+    }
+    .leftcontainer li{
+    font-size: 0.8em
+    }
+
+    .selectpicker{
+    font-size: 0.9em;
+    }
+}
+
+body{
+padding-right: 0px;
+width: 100%;
+height: 100%;
+}
+
+.btn{
+padding-top: 10px;
+margin-top: 40px;
+}
+
+.leftcontainer{
+padding: 0px;
+margin: 0px;
+border-right: 10px;
+}
+
+
+.middlediv{
+padding: 0px;
+margin: 0px;
+}
+
+table{
+    padding-left: 10px;
+}
+
+h3 strong{
+    font-size: 1.4em;
+}
+
+#store_name{
+    font-size: 1.1em;
+}
+
+.icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+hr{
+border-width: 5px;
+border-style: solid;
+}
+
+#testPara{
+font-size: 1.1em;
+}
+
+.adspace{
+padding-top: 30px;
+padding-bottom: 30px;
+padding-right: 0px;
+}
+
+footer{
+clear: both;
+position: relative;
+width: 100%;
+height: 55px;
+background-color: #1a1a1a;
+color: #a6a6a6;
+padding: 0;
+padding-left: 25px;
+padding-top: 10px;
+margin: 0 !important;
+border:0 !important;
+}

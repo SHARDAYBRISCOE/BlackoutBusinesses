@@ -1,0 +1,184 @@
+body{
+background-image: none;
+background-color: #E7ECEF !important;
+}
+
+.clear{
+clear: all;
+}
+
+.jumbotron{
+    background-color: white !important;
+}
+
+.h2div{
+border-bottom: 2px;
+border-color: black;
+border-width: 20px;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .slider-size {
+        height: auto;
+    }
+    .slider-size > img {
+         width: 80%;
+    }
+    .articleclass{
+    font-size: 0.5em;
+    }
+    #floatdown{
+    margin-top: 40px;
+    }
+    .articleclass h1{
+    font-size: 1.0em !important;
+    }
+
+    #topPost{
+    padding-top: 10px !important;
+    }
+    .aboutPage p{
+        font-size: 1.2em !important;
+    }
+}
+
+/* tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    .slider-size {
+        height: auto;
+    }
+    .slider-size > img {
+        width: 80%;
+    }
+    .articleclass{
+    font-size: 0.6em;
+    }
+    #floatdown{
+    margin-top: 40px;
+    }
+    .articleclass h1{
+    font-size: 1.0em !important;
+    }
+
+    #topPost{
+    padding-top: 10px;
+    }
+    .aboutPage p{
+        font-size: 1.2em !important;
+    }
+}
+
+/* laptops */
+@media (max-width: 1023px) and (min-width: 992px) {
+    .slider-size {
+         height: 200px;
+    }
+    .slider-size > img {
+        width: 80%;
+    }
+    .articleclass{
+    font-size: 0.7em;
+    }
+    #floatdown{
+    margin-top: 140px;
+    }
+    .articleclass h1{
+    font-size: 1.2em !important;
+    }
+
+     #myCarousel{
+    margin-bottom: 160px;
+    }
+
+    #topPost{
+    padding-top: 10px;
+    }
+
+    .aboutPage p{
+        font-size: 1.3em !important;
+    }
+}
+
+/* desktops */
+@media (min-width: 1024px) {
+    .slider-size {
+        height: 300px;
+    }
+    .slider-size > img {
+        width: 60%;
+    }
+    .articleclass{
+    font-size: 0.8em;
+    }
+    #floatdown{
+    margin-top: 190px;
+    }
+    .articleclass h1{
+    font-size: 1.4em !important;
+    }
+    #myCarousel{
+    margin-bottom: 180px;
+    }
+    
+    #topPost{
+    padding-top: 10px;
+    }
+    .aboutPage p{
+        font-size: 1.3em !important;
+    }
+   }
+
+li{
+padding-top: 6px;
+}
+
+.active{
+background-color: #4d4d4d
+}
+
+#body{
+padding-left: 4px;
+padding-bottom: 0;
+margin-bottom: 0;
+border-bottom: 0;
+
+}
+
+#myCarousel{
+width: 70%;
+position: center;
+margin-left: 24px;
+}
+
+.icon{
+    margin-right: 4px;
+}
+.socialPost{
+padding-left: 30px;
+}
+
+
+
+.socialPost img{
+    float: left;
+}
+.socialPostWebsites{
+    float: left;
+    padding-left: 10px;
+}
+
+
+footer{
+clear: both;
+position: relative;
+width: 100%;
+height: 55px;
+background-color: #1a1a1a;
+color: #a6a6a6;
+padding: 0;
+padding-left: 25px;
+padding-top: 10px;
+margin: 0 !important;
+border:0 !important;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blackout Businesses Backend</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+.header{
+	background-color: black;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	height: 52px;
+	color: #cecece;
+	}
+
+.header p{
+	font-size: 1.5em;
+	padding: 5px 0 0 6px;
+}
+body{
+	background-color: #cecece;
+}
+
+.bottom{
+	padding: 30px 0 0 30px;
+}
+.inputbox{
+	width:70%;
+}
+
+.location, .categories, .state{
+	padding: 0 0 30px 0;
+}
+
+label{
+	padding: 0 0 30px 0;
+	width: 100px;
+}
+
+.submitButton{
+margin: 0 0 60px 0;
+}
+</style>
+</head>
+<body>
+<div class="body">
+	<div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<p>Blackout Businesses</p>
+	</div>
+
+	<div class="bottom col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+		<div class="location">
+			 <label for="loc">Location</label><br />
+              <input type="radio" name="loc" value="online">Online Businesses<br/>
+              <input type="radio" name="loc" value="physical">Physical Location<br /><br />
+		</div>
+
+		<div class="categories">
+		    <label for="category">Category</label>
+        	  <select name="category" id= "vidCat">
+	           	  <option value="select">Select</option>
+	    	      <option value="apparel">Apparel</option>
+    	    	  <option value="beauty">Beauty and Makeup</option>
+	    	      <option value="education">Education</option>    
+    	    	  <option value="food">Food</option>
+	        	  <option value="real">Real Estate</option>
+		          <option value="services">Services</option>
+    		      <option value="sports">Sports</option>
+	        </select><br />
+		</div>
+		<div class="state">
+		    <label for="state">State</label>
+        	  <select name="state" id= "vidLoc">
+	           	  <option value="select">Select</option>
+	    	      <option value="CA">CA</option>
+    	    	  <option value="DMV">DMV</option>
+	    	      <option value="FL">FL</option>    
+    	    	  <option value="GA">GA</option>
+	        	  <option value="IL">IL</option>
+		          <option value="LA">LA</option>
+    		      <option value="NC">NC</option>
+    		      <option value="NY">NY</option>
+    		      <option value="PA">PA</option>
+    		      <option value="TX">TX</option>
+    		      <option value="WA">WA</option>
+    		      <option value="online">Online</option>
+
+	        </select><br />
+		</div>
+		<div>
+			<label>Address</label>
+			<input type="text" name="" class="inputbox" id="address">		
+		</div>
+		<div>
+			<label>Store Name</label>
+			<input type="text" name="" class="inputbox" id="storeName">		
+		</div>
+
+		<div>
+			<label>Website</label>
+			<input type="text" name="" class="inputbox" id="website">		
+		</div>
+
+		<div>
+			<label>Facebook</label>
+			<input type="text" name="" class="inputbox" id="facebook">		
+		</div>
+
+		<div>
+			<label>Instagram</label>
+			<input type="text" name="" class="inputbox" id="instagram">		
+		</div>
+
+		<div>
+			<label>Yelp</label>
+			<input type="text" name="" class="inputbox" id="yelp">		
+		</div>		
+
+		<div>
+			<label>Lat</label>
+			<input type="text" name="" class="inputbox" id="lat">		
+		</div>
+
+		<div>
+			<label>Long</label>
+			<input type="text" name="" class="inputbox" id="long">		
+		</div>
+
+		   <button value="submit" name="submit" class="submitButton" id="btn">Submit to Firebase</button>
+
+		
+	</div>
+
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<script>
+	 $(document).ready(function(){
+
+	
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyClZruDfMc9baXbNUfvipzS_YARqWchPcQ",
+    authDomain: "blackoutbusinesses.firebaseapp.com",
+    databaseURL: "https://blackoutbusinesses.firebaseio.com",
+    storageBucket: "blackoutbusinesses.appspot.com",
+    messagingSenderId: "839023777953"
+  };
+  firebase.initializeApp(config)
+
+	var address = $("#address").val(); 
+	var storeName = $("#storeName").val();
+	var category = $("#category option:selected").text();
+	var facebook = $("#facebook").val();
+	var website = $("#website").val();
+	var instagram = $("#instagram").val();
+	var yelp = $("#yelp").val();;
+
+	var lat = $("#lat").val();;
+	var long = $("#long").val();
+
+	var state = $("#vidLoc option:selected").text();
+
+	var zipcode = "";
+
+	var field19 = "";
+	var monday = "";
+	var tuesday = "";
+	var wed = "";
+	var thurs = "";
+	var fri = "";
+	var sat = "";
+	var sun = "";
+
+		$("#btn").click(function(){
+
+
+			alert(category);
+		});//end of submit btn
+   });//end of document.ready
+</script>
+
+</body>
+</html>

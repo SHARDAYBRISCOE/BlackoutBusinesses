@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blackout Businesses</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="directory.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="blackout20px.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="directory.html" class="active">Directory</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="downloadtheapp.html">Download the App</a></li>  
+              </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="container leftcontainer col-lg-3 col-md-3 col-sm-12 col-xs-12 jumbotron">
+
+<h3>Choose a location</h3>
+<select class="selectpicker" id="location">
+  <option>Online Businesses</option>
+  <option>CA</option>
+  <option>NY</option>
+  <option>DMV</option>
+  <option>IL</option>
+  <option>TX</option>
+  <option>FL</option>
+  <option>GA</option>
+  <option>NC</option>
+  <option>LA</option>
+  <option>WA</option>
+  <option>PA</option>
+  <option>MA</option>
+</select>
+
+<h3>Choose a category</h3>
+<select class="selectpicker" id="category">
+  <option>Food</option>
+  <option>Apparel</option>
+  <option>Beauty and Makeup</option>
+  <option>Education</option>
+  <option>Entertainment and Media</option>
+  <option>Shopping</option>
+  <option>Real Estate</option>
+  <option>Sports</option>
+
+
+</select>
+<br/>
+<button type="button" class="btn btn-primary" id="submit_button">Submit</button>
+ </div>
+
+
+
+ 
+
+<div class="container middlediv col-lg-9 col-md-9 col-sm-12 col-xs-12">
+<div class="jumbotron">
+<div class="alert alert-danger hidden-lg hidden-md hidden-sm">
+  <strong>Warning!</strong> This table should be viewed on a larger screen for better functionality.
+</div>
+  <h2 id="titleBusinesses">Blackout Businesses</h2>
+  <p id="testPara"></p>
+  
+  <h3 id="store_name"><span class="glyphicon"></span></h3>
+
+   </div>
+</div>
+<div class="clear"> </div>
+
+
+
+</div>
+
+<br /> <br /> <br /> <br /> <br /> <br />
+<div class="clear"> 
+<footer> 
+
+Blackout Businesses | Copyright © 2021
+      
+</div>
+</footer>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script>
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyClZruDfMc9baXbNUfvipzS_YARqWchPcQ",
+    authDomain: "blackoutbusinesses.firebaseapp.com",
+    databaseURL: "https://blackoutbusinesses.firebaseio.com",
+    storageBucket: "blackoutbusinesses.appspot.com",
+    messagingSenderId: "839023777953"
+  };
+  firebase.initializeApp(config)
+
+    $(document).ready(function(){
+var isDirectoryEmpty = true;
+
+if (isDirectoryEmpty = true){
+$("#testPara").append('<div class="alert alert-warning"> <p><span class="glyphicon glyphicon-exclamation-sign"></span> Choose a location and category from the dropdown menu.</p> </div>')
+}
+//IF THE USER HASNT CLICKED THE BUTTON SHOW A MESSAGE THAT TELLS THEM TO CHOOSE A LOCATION AND CATEGORY.
+
+$("#submit_button").click(function(){
+  var pageIsClear = true;
+  isDirectoryEmpty = false;
+  //TRUE MEANS THAT NOTHING IS ON THE PAGE SO WE CAN RUN THE CODE
+
+        var cChoice = $("#category option:selected").text();
+        var lChoice = $("#location option:selected").text();
+        var catChoice = cChoice.toUpperCase();
+        var locChoice = lChoice.toUpperCase();
+        $("#titleBusinesses").empty(catChoice);
+        $("#titleBusinesses").append("Blackout Businesses: "+ cChoice);
+        $("#testPara").empty();
+
+
+
+        if (lChoice == "Online Businesses"){
+          //alert("Online");
+          ///////////////////////////////////////
+          ///ONLINE SECTION
+
+           var webRef = firebase.database().ref().child("Websites").child(catChoice);
+           firebase.database().ref().child("Websites").child(catChoice);
+
+           //THIS CHECKS IF THERE ARE VALUES
+           webRef.on('value', snap =>{
+        if (!snap.exists()){
+         // alert("There are no results");
+          $("#testPara").append('<div class= "alert alert-info"> <p> <strong> Error! </strong> There are no results for this category and location.</p> <div>');
+        }
+      });
+           ///////////////END CHECK FOR value
+
+           webRef.on("child_added", snap =>{
+            var web_name = snap.child("STORE"+ " " +"NAME").val();
+            var web_website = snap.child("WEBSITE").val();
+            var web_facebook = snap.child("FACEBOOK").val();
+            var web_insta = snap.child("INSTAGRAM").val();
+        //APPEND NAMES FIRST
+        $("#testPara").append("<br />" + "<strong>" + web_name + "</strong>");
+
+          if (web_insta == ""){
+          web_insta = "Instagram unavailable";
+          $("#testPara").append("<br />" + web_insta);
+        }else{
+          $("#testPara").append("<br />" + '<img src="instagram.png" alt="instagram" class="icon">' + '<a href=" '+ web_insta + '">' + web_insta + "</a>");
+        }
+
+        if (web_website == ""){
+          web_website = "Website unavailable";
+          $("#testPara").append("<br />" + web_website)
+        }else{
+          $("#testPara").append("<br />" + '<img src="website.png" alt="instagram" class="icon">' + '<a href=" '+ web_website + '">' + web_website + "</a>")
+        }
+
+          if (web_facebook == ""){
+          web_facebook = "Facebook unavailable";
+          $("#testPara").append("<br />" + web_facebook + "<br />" + "<hr>");
+        }else{
+          $("#testPara").append("<br />" + '<img src="facebook.png" alt="instagram" class="icon">'+ '<a href=" '+ web_facebook + '">' + web_facebook + "</a>" + "<br />" + "<hr>");
+        }
+        
+           });//END OF WEBREF ON FUNC
+
+
+          //END OF ONLINE SECTION
+          //////////////////////////////
+        }else{
+          //alert("Location");
+          ///////////////////////////////////////
+          ///LOCATIONS SECTION
+        var cChoice = $("#category option:selected").text();
+        var lChoice = $("#location option:selected").text();
+        var catChoice = cChoice.toUpperCase();
+        var locChoice = lChoice.toUpperCase();
+
+      var rootRef = firebase.database().ref().child("Locations").child(catChoice).child(locChoice);
+      rootRef.on('value', snap =>{
+        if (!snap.exists()){
+          //alert("There are no results");
+          $("#testPara").append('<div class= "alert alert-info"> <p> <strong> Error! </strong> There are no results for this category and location.</p> <div>');
+        }
+      });
+
+      rootRef.on("child_added", snap =>{
+
+        var store_name = snap.child("STORE"+ " " +"NAME").val();
+        var address = snap.child("ADDRESS").val();
+        var website = snap.child("WEBSITE").val();
+        var yelp = snap.child("YELP").val();
+        var facebook = snap.child("FACEBOOK").val();
+        var instagram = snap.child("INSTAGRAM").val();
+
+        $("#testPara").append("<br />" + "<strong>" + store_name + "</strong>");
+
+        $("#testPara").append("<br />" + address);
+
+        if (instagram == ""){
+          instagram = "Instagram unavailable";
+          $("#testPara").append("<br />" + instagram);
+        }else{
+          $("#testPara").append("<br />" + '<img src="instagram.png" alt="instagram" class="icon">'+ '<a href=" '+ instagram + '">' + instagram + "</a>");
+        }
+
+        if (website == ""){
+          website = "Website unavailable";
+          $("#testPara").append("<br />" + website);
+        }else{
+          $("#testPara").append("<br />" + '<img src="website.png" alt="instagram" class="icon">' + '<a href=" '+ website + '">' + website + "</a>");
+        }
+        
+        if (yelp == ""){
+          yelp = "Yelp unavailable";
+          $("#testPara").append("<br />" + yelp);
+        }else{
+          $("#testPara").append("<br />" + '<img src="yelp.png" alt="instagram" class="icon">' + '<a href=" '+ yelp + '">' + yelp + "</a>");
+        }
+
+        if (facebook == ""){
+          facebook = "Facebook unavailable";
+          $("#testPara").append("<br />" + facebook + "<hr>");
+        }else{
+          $("#testPara").append("<br />" + '<img src="facebook.png" alt="instagram" class="icon">' + '<a href=" '+ facebook + '">' + facebook + "</a>" + "<hr>");
+        }
+         //END OF ROOTREF SECTION
+         ///////////////////////////////
+
+      });
+
+          //END OF LOCATION SECTION
+          //////////////////////////////
+        }
+      });
+
+    });
+ 
+
+  
+    //END OF JQUERY
+
+</script>
+</body>
+</html>
+

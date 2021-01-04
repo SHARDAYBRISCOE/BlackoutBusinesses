@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blackout Businesses</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="contact.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="blackout20px.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="directory.html">Directory</a></li>
+              <li><a href="contact.html" class="active">Contact</a></li>
+              <li><a href="downloadtheapp.html">Download the App</a></li>  
+              </ul>
+      
+    </div>
+  </div>
+</nav>
+
+<div>
+ 
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 jumbotron">
+<div class="contactMiddle">
+  <h3>Contact Blackout Businesses </h3>
+          <p class="lead">Please send an email to contact Blackout Businesses. Responses take between 24-48 hours.</p>
+        <img class="logo" src="logo.png" alt="logo">
+             <p>
+    For questions, comments, or suggestions, email: <br /> <strong>contact@blackoutbusinesses.com</strong>
+  </p>
+  <br />  <br />  <br />  <br />
+  <p>
+    If you would like add a black owned business to the directory, email: <br /> <strong>businesses@blackoutbusinesses.com </strong> <br />Include all relevant information about the business including an address if there is a physical location and links to the official website, Facebook, Instagram, and/or Yelp page.
+  </p>
+   
+  </div>
+</div>
+<div class="clear"> </div>
+
+
+</div>
+
+    <div style="clear:both;"></div>
+
+
+ 
+
+
+</div>
+
+<br /> <br /> <br /> <br /> <br /> <br />
+<div class="clear"> 
+</div>
+
+<footer> 
+
+Blackout Businesses | Copyright © 2021
+      
+</div>
+</footer>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script type="text/javascript">
+  document.getElementById('submit_button').addEventListener('click', function(){
+    //alert('hello world');
+    window.location = 'www.blackoutbusinesses.com/phptest/formsubmitted.html'
+
+  })
+  $(document).ready(function(){
+
+    $("#contact-form").validate().on("submit", function(event){
+      if (event.isDefaultPrevented()){
+        //handle the invalid form
+        formError();
+        submitMSG(false, "Did you fill in the form propertly?");
+      }else{
+        event.preventDefault();
+        submitForm();
+      }
+    });
+
+   
+
+    $("#submit_button").click(function(){
+      //ON CLICK, IF ALL FIELDS ARE NOT EMPTY, ALERT SUCCESS
+     // alert('hello');
+     //GO TO NEW PAGE.
+      })
+
+  })
+</script>
+</body>
+</html>
+
